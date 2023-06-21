@@ -4,7 +4,7 @@ import Navigation from './navigation';
 
 const Main = () => {
   return (
-    <KeyboardAvoidingView style={{flex: 1}}>
+    <KeyboardAvoidingView enabled={true} style={{flex: 1}}>
       <Navigation />
     </KeyboardAvoidingView>
   );
