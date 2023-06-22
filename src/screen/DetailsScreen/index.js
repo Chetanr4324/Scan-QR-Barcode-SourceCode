@@ -24,13 +24,11 @@ const DetailsScreen = ({route, navigation}) => {
     await AsyncStorage.getItem('@data')
       .then(async vel => {
         let data = JSON.parse(vel);
-        // const index = vel == null ? '1' : data.index;
         const newData = {
-          title: inputData,
-          data: scanData.data,
-          type: scanData.type,
+          title: inputData ? inputData : 'Qr code',
+          data: scanData.data ? scanData.data : scanData,
+          type: scanData.type ? scanData.type : 'Qr Code',
           selected: false,
-          // index: index,
         };
 
         if (vel == null) {
@@ -64,7 +62,9 @@ const DetailsScreen = ({route, navigation}) => {
         placeholder="Enter Title"
       />
       <View style={styles.box1}>
-        <Text style={styles.txt}>{scanData.data}</Text>
+        <Text style={styles.txt}>
+          {scanData.data ? scanData.data : scanData}
+        </Text>
       </View>
       <TouchableOpacity
         style={styles.btnBox}
